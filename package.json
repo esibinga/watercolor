@@ -1,0 +1,12 @@
+{
+  "name": "watercolor",
+  "version": "1.0.0",
+  "description": "capstone",
+  "main": "index.js",
+  "repository": "https://github.com/esibinga/watercolor.git",
+  "author": "Eva",
+  "license": "MIT",
+  "scripts": {
+    "serve": ""
+  }
+}
