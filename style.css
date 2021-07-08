@@ -1,0 +1,34 @@
+body{
+    display: grid;
+    background-color: white; /*rgb(51, 53, 85); /*rgb(243, 243, 246);*/
+    font-family: 'Helvetica Neue';
+    /*color: rgba(116, 106, 100); /*rgb(51,53,85);*/
+    color: rgb(77, 70, 66);
+}
+
+  div.h1h2 {
+      border-bottom: .5mm solid  rgba(116, 106, 100);
+      max-width: 75%;
+      padding: 0% 2% 0% 2%;
+      margin: auto;
+      margin-top: 3%;
+  }
+  
+  /* Style the header with padding */
+  .header {
+      overflow: hidden;
+      padding: 10px 10px;
+      margin: auto;
+      font-family: monaco;
+      width: inherit;
+      border-bottom: .5mm solid  rgba(116, 106, 100);
+    }
+    
+    h1 {
+        text-align: center;
+        font-weight: 300;
+        font-size: 32pt;
+        font-family: "Monaco", sans-serif;
+        color: rgba(116, 106, 100);
+    }
+    
