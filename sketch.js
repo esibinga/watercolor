@@ -5,8 +5,8 @@
 // let colorIncreaser;
 
 function setup() {
-    createCanvas(1000, 500); //(x, y)
-    background(0);
+    createCanvas(1200, 2400); //(x, y)
+    background(255);
     fillColor = color(110, 180, 200);
     angleMode(DEGREES);
     // noStroke();
@@ -14,35 +14,69 @@ function setup() {
 
 function draw() {
     noFill();
-    noLoop(); //stops after one iteration instead of running continuously
+    noLoop(); //stops after one iteration instead of running continuously;  https://p5js.org/reference/#/p5/noLoop
     stroke(110, 180, 200); // teal blue
 
+    // how do I make this generate a new random pair for every shape in the grid?
 
-    let x = random(25);
-    let y = random(25);
+
+
+    for (var x = 30; x < width; x += width / 3) {
+        for (var y = -130; y < height; y += height / 8) {
+            stroke(110, 180, 200); // teal blue
+            strokeWeight(1);
+
+            // make shape
+            beginShape();
+            let i = random(50);
+            let j = random(50);
+            // N
+            curveVertex(0 + x, 250 + y); // determines curvature
+            curveVertex(150 + x, 150 + y);
+            // NE
+            curveVertex(270 + i + x, 180 + j + y);
+            // E
+            curveVertex(300 + x, 285 + y);
+            // SE
+            curveVertex(275 + i + x, 335 + j + y);
+            // S
+            curveVertex(150 + x, 400 + y);
+            // SW
+            curveVertex(45 + i + x, 345 + j + y);
+            // W
+            curveVertex(30 + x, 290 + y);
+            //NW
+            curveVertex(20 + i + x, 200 + j + y);
+            // end (N)
+            curveVertex(150 + x, 150 + y);
+            curveVertex(1000 + x, 250 + y); // determines curvature
+            endShape();
+
+        }
+    }
     // replicate above but increment with random number in a range
-    beginShape();
-    // N
-    curveVertex(0, 150);
-    curveVertex(150 + 500, 150);
-    //curveVertex(150 + x + 500, 150 + y);
-    // NE
-    curveVertex(275 + x + 500, 210 + y);
-    // E
-    curveVertex(300 + 500, 275);
-    // SE
-    curveVertex(275 + x + 500, 335 + y);
-    // S
-    curveVertex(150 + 500, 400);
-    // SW
-    curveVertex(45 + x + 500, 345 + y);
-    // W
-    curveVertex(10 + 500, 250);
-    // end (N)
-    curveVertex(150 + 500, 150);
-    // curveVertex(150 + x + 500, 150 + y);
-    curveVertex(1000 + 500, 250); // determines curvature
-    endShape();
+    // beginShape();
+    // // N
+    // curveVertex(0, 150);
+    // curveVertex(150 + 500, 150);
+    // //curveVertex(150 + i + 500, 150 + j);
+    // // NE
+    // curveVertex(275 + i + 500, 210 + j);
+    // // E
+    // curveVertex(300 + 500, 275);
+    // // SE
+    // curveVertex(275 + i + 500, 335 + j);
+    // // S
+    // curveVertex(150 + 500, 400);
+    // // SW
+    // curveVertex(45 + i + 500, 345 + j);
+    // // W
+    // curveVertex(10 + 500, 250);
+    // // end (N)
+    // curveVertex(150 + 500, 150);
+    // // curveVertex(150 + i + 500, 150 + j);
+    // curveVertex(1000 + 500, 250); // determines curvature
+    // endShape();
 
     /* TODO:
     --> make a grid of blobs
@@ -56,9 +90,9 @@ function draw() {
     beginShape();
     let spacing = map(mouseX, 0, width, 3, 140);
     for (let a = 0; a <= 360; a += spacing) {
-        let x = 200 * sin(a) + 250;
-        let y = 200 * cos(a) + 250;
-        vertex(x, y);
+        let i = 200 * sin(a) + 250;
+        let j = 200 * cos(a) + 250;
+        vertex(i, j);
     }
     endShape();
  */
