@@ -1,88 +1,109 @@
 
 var c1, c2;
+let button;
 
 function setup() {
     createCanvas(1200, 500); //(x, y)
-    //background(255);
-    //  fillColor = color(110, 180, 200);
 
-    //color randomness
-    let a = random(256)
-    let b = random(256)
-    let c = random(256)
-    let m = random(256)
-    let n = random(256)
-    let o = random(256)
-
-    let c1 = color(a, b, c);
-    let c2 = color(m, n, o);
-
+    // run the first gradient
     setGradient(c1, c2);
 
+    setShape();
+
+    //make a button that runs setGradient when clicked
+    button = createButton('change colors');
+    button.position(50, 30);
+    button.mousePressed(setGradient);
+
+    button = createButton('change shapes');
+    button.position(50, 60);
+    button.mousePressed(setShape);
+
 }
 
-function draw() {
-    ellipse(mouseX, mouseY, 30, 30);
-}
+// function draw() {
+//     ellipse(mouseX, mouseY, 30, 30);
+// }
 
 
-// TO DO: extrapolate this to a function / for loop to generate as many quads as i want
-// TO DO: define a, b, c within the loop for greater efficiency
-function setGradient(c1, c2) {
+// DONE: extrapolate this to a function / for loop to generate as many quads as i want
+
+function setGradient() { //create color background
+
+    //color randomness
+    let r1 = random(256)
+    let g1 = random(256)
+    let b1 = random(256)
+    let r2 = random(256)
+    let g2 = random(256)
+    let b2 = random(256)
+    let opacity1 = random();
+    let opacity2 = random();
+
+
+    let c1 = color(r1, g1, b1, random(128));
+    let c2 = color(r2, g2, b2, random(128));
     // noprotect
+
     noFill();
 
-    for (var x = 3; x < width; x += width / 3) {
-        for (var y = 0; y < 500; y++) {
-            var inter = map(y, 0, 500, 0, 1);
-            var c = lerpColor(c1, c2, inter);
-            var cAgain = lerpColor(c2, c1, inter);
-            stroke(c);
-            quad(50, y, 100, y);
-            stroke(cAgain);
-            quad(150, y, 200, y);
-            stroke(c);
-            quad(250, y, 300, y);
-            stroke(cAgain);
-            quad(350, y, 400, y);
-            stroke(c);
-            quad(450, y, 500, y);
-            stroke(cAgain);
-            quad(550, y, 600, y);
-            stroke(c);
-            quad(650, y, 700, y);
-            /*
-                        beginShape();
-                        //shape randomness
-                        let i = random(50);
-                        let j = random(50);
-            
-            
-                        //stroke randomness
-                        let d = random(10);
-            
-                        strokeWeight(1);
-                        // N
-                        curveVertex(0 + x, 250 + y); // determines curvature
-                        curveVertex(150 + x, 150 + y);
-                        // NE
-                        curveVertex(270 + i + x, 180 + j + y);
-                        // E
-                        curveVertex(300 + x, 285 + y);
-                        // SE
-                        curveVertex(275 + i + x, 335 + j + y);
-                        // S
-                        curveVertex(150 + x, 400 + y);
-                        // SW
-                        curveVertex(45 + i + x, 345 + j + y);
-                        // W
-                        curveVertex(30 + x, 290 + y);
-                        //NW
-                        curveVertex(20 + i + x, 200 + j + y);
-                        // end (N)
-                        curveVertex(150 + x, 150 + y);
-                        curveVertex(1000 + x, 250 + y); // determines curvature
-                        endShape();*/
+    for (var x = 0; x < width; x += width / 3) {
+        for (var y = 0; y < 250; y++) {
+            var inter = map(y, 0, 250, 0, 1);
+            var range = lerpColor(c1, c2, inter);
+            var reverseRange = lerpColor(c2, c1, inter);
+
+            // this uses stroke to make one line in each color over the map (so it can't be fill)
+
+            stroke(range);
+            rect(x, y, 200, 0);
+            stroke(reverseRange);
+            rect(x + 200, y, 200, 0);
+
         }
     }
+}
+
+function setShape() {
+    for (var x = 0; x < width; x += width / 6) {
+        for (var y = 0; y < 1; y++) {
+
+            //shape randomness
+            let i = random(25);
+            let j = random(25);
+            noStroke();
+            fill(000);
+            stroke(000);
+            strokeWeight(2);
+
+            erase(100, 255);
+
+            // make shape
+            beginShape();
+            // N
+            curveVertex(70 + x, 150 + y); // determines curvature
+            curveVertex(70 + x, 50 + y);
+            // NE
+            curveVertex(120 + i + x, 60 + j + y);
+            // E
+            curveVertex(170 + x, 105 + y);
+            // SE
+            curveVertex(125 + i + x, 165 + j + y);
+            // S
+            curveVertex(90 + x, 200 + y);
+            // SW
+            curveVertex(55 + i + x, 165 + j + y);
+            // W
+            curveVertex(45 + x, 125 + y);
+            //NW
+            curveVertex(40 + i + x, 100 + j + y);
+            // end (N)
+            curveVertex(80 + x, 50 + y);
+            curveVertex(300 + x, 150 + y); // determines curvature
+            endShape();
+
+            noErase();
+        }
+    }
+
 }
