@@ -23,7 +23,7 @@ function setup() {
 
 function draw() {
     //ellipse(mouseX, mouseY, 30, 30);
-    //  console.log("x y is ", mouseX, mouseY)
+    // console.log("x y is ", mouseX, mouseY)
 }
 
 
@@ -85,16 +85,43 @@ function setShape() {
             vertex(x, 250);
             vertex(x, 250);
 
-            erase(255, 255);
+            erase(150, 255);
+
+            /*
+            // N
+            // curveVertex(70 + x, 150 + y); // determines curvature
+            //  vertex(0 + x, 0 + y);
+            vertex(40 + x, 40 + y);
+            //NW
+            vertex(40 + i + x, 90 + j + y);
+            // W
+            vertex(35 + x, 125 + y);
+            // SW
+            vertex(45 + i + x, 175 + j + y);
+            // S
+            vertex(90 + x, 210 + y);
+            // SE
+            vertex(135 + i + x, 175 + j + y);
+            // E
+            vertex(180 + x, 105 + y);
+            // NE
+            vertex(130 + i + x, 50 + j + y);
+            // end (N)
+            // vertex(80 + x, 50 + y);
+            // vertex(70 + x, 150 + y); // determines curvature
+            vertex(70 + x, 40 + y);
+            // vertex(70 + x, 40 + y);
+
+*/
 
             // make blob - contour
             beginContour();
             // N
             // curveVertex(70 + x, 150 + y); // determines curvature
-            curveVertex(0 + x, 0 + y);
+            vertex(0 + x, 0 + y);
             curveVertex(70 + x, 50 + y);
             //NW
-            curveVertex(50 + i + x, 100 + j + y);
+            curveVertex(50 + i + x, 80 + j + y);
             // W
             curveVertex(45 + x, 125 + y);
             // SW
