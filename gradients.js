@@ -85,43 +85,18 @@ function setShape() {
             vertex(x, 250);
             vertex(x, 250);
 
-            erase(150, 255);
+            // erase(200, 255);
+            erase(255, 255);
 
-            /*
-            // N
-            // curveVertex(70 + x, 150 + y); // determines curvature
-            //  vertex(0 + x, 0 + y);
-            vertex(40 + x, 40 + y);
-            //NW
-            vertex(40 + i + x, 90 + j + y);
-            // W
-            vertex(35 + x, 125 + y);
-            // SW
-            vertex(45 + i + x, 175 + j + y);
-            // S
-            vertex(90 + x, 210 + y);
-            // SE
-            vertex(135 + i + x, 175 + j + y);
-            // E
-            vertex(180 + x, 105 + y);
-            // NE
-            vertex(130 + i + x, 50 + j + y);
-            // end (N)
-            // vertex(80 + x, 50 + y);
-            // vertex(70 + x, 150 + y); // determines curvature
-            vertex(70 + x, 40 + y);
-            // vertex(70 + x, 40 + y);
-
-*/
+            // pretty sure you can't even really do a blob contour so this is truly just a mess
 
             // make blob - contour
             beginContour();
             // N
-            // curveVertex(70 + x, 150 + y); // determines curvature
             vertex(0 + x, 0 + y);
-            curveVertex(70 + x, 50 + y);
+            curveVertex(40 + x, 50 + y);
             //NW
-            curveVertex(50 + i + x, 80 + j + y);
+            curveVertex(40 + i + x, 80 + j + y);
             // W
             curveVertex(45 + x, 125 + y);
             // SW
@@ -135,12 +110,9 @@ function setShape() {
             // NE
             curveVertex(120 + i + x, 60 + j + y);
             // end (N)
-            // curveVertex(80 + x, 50 + y);
-            // curveVertex(70 + x, 150 + y); // determines curvature
             curveVertex(70 + x, 50 + y);
-            curveVertex(70 + x, 50 + y);
-            //curveVertex(300 + x, 150 + y); // determines curvature
-            endContour();
+            curveVertex(30 + x, 150 + y);
+            endContour(CLOSE);
 
             endShape(CLOSE);
 
@@ -149,23 +121,3 @@ function setShape() {
     }
 
 }
-
-/*
-        // N
-        curveVertex(70 + x, 150 + y); // determines curvature
-        curveVertex(70 + x, 50 + y);
-        // NE
-        curveVertex(120 + i + x, 60 + j + y);
-        // E
-        curveVertex(170 + x, 105 + y);
-        // SE
-        curveVertex(125 + i + x, 165 + j + y);
-        // S
-        curveVertex(90 + x, 200 + y);
-        // SW
-        curveVertex(55 + i + x, 165 + j + y);
-        // W
-        curveVertex(45 + x, 125 + y);
-        //NW
-        curveVertex(40 + i + x, 100 + j + y);
-        */
