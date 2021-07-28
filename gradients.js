@@ -61,7 +61,9 @@ function setup() {
 }
 
 function draw() {
-    //ellipse(mouseX, mouseY, 30, 30);
+    ellipse(mouseX, mouseY, 30, 30);
+    fill(256, 3);
+    stroke(256, 3)
     // console.log("x y is ", mouseX, mouseY)
 
 }
